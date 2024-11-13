@@ -22,12 +22,12 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
       //CREO LA CARD
       const newcard = document.createElement("div");
-      newcard.className = "card h-100";
+      newcard.className = "card";
 
       // CREO L'IMMAGINE DELLA CARD
       const cardImg = document.createElement("img");
       cardImg.src = obj.img;
-      cardImg.className = "card-img-top";
+      cardImg.className = "card-img-top h-100";
 
       // CREO IL CARD-BODY
       const cardBody = document.createElement("div");

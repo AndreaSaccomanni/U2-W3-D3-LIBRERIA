@@ -17,12 +17,12 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
     objects.forEach((obj) => {
       // CREA LA COL
-      const col = document.createElement("div");
-      col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
+      //const col = document.createElement("div");
+      //col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
 
       //CREO LA CARD
       const newcard = document.createElement("div");
-      newcard.className = "card";
+      newcard.className = "card h-100";
 
       // CREO L'IMMAGINE DELLA CARD
       const cardImg = document.createElement("img");
@@ -75,10 +75,10 @@ fetch("https://striveschool-api.herokuapp.com/books")
       newcard.appendChild(cardBody);
 
       //APPENDO LA CARD ALLA COLONNA
-      col.appendChild(newcard);
+      row.appendChild(newcard);
 
       //APPENDO LA COLONNA ALLA ROW
-      row.appendChild(col);
+      //row.appendChild(col);
     });
   })
   .catch((error) => {

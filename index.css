@@ -1,20 +1,22 @@
-.card {
+/*.card {
   width: 100%;
   max-width: 250px;
   height: 400px;
   box-sizing: border-box;
-}
+}*/
 
 .row {
   margin-left: -15px;
   margin-right: -15px;
 }
 
-.col {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 .g-3 {
   gap: 1rem;
+}
+img {
+  object-fit: cover;
+}
+
+.buttonSelected {
+  border: solid 2px red;
 }

@@ -8,42 +8,39 @@ fetch("https://striveschool-api.herokuapp.com/books")
     }
   })
 
-  //SECONDO THEN PER LEGGERE IL JSON DELLA RESPONSE
+  // SECONDO THEN PER LEGGERE IL JSON DELLA RESPONSE
   .then((objects) => {
     console.log("objects", objects);
 
-    //ORA SONO DISPONIBILI PER L'UTILIZZO
+    // Ora sono disponibili per l'utilizzo
     const row = document.getElementById("row");
 
     objects.forEach((obj) => {
-      // CREA LA COL
-      //const col = document.createElement("div");
-      //col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
-
-      //CREO LA CARD
+      // Creo la card
       const newcard = document.createElement("div");
-      newcard.className = "card";
+      newcard.className = "card col-12 col-sm-6 col-md-4 col-lg-3 px-2";
 
-      // CREO L'IMMAGINE DELLA CARD
+      // Creo l'immagine della card
       const cardImg = document.createElement("img");
       cardImg.src = obj.img;
-      cardImg.className = "card-img-top h-100";
+      cardImg.className = "card-img-top";
+      cardImg.style.objectFit = "cover"; // Aggiungi per far sì che l'immagine copra l'area
 
-      // CREO IL CARD-BODY
+      // Creo il card-body
       const cardBody = document.createElement("div");
       cardBody.className = "card-body";
 
-      //CREO IL CARD-TITLE
+      // Creo il card-title
       const cardTitle = document.createElement("h5");
       cardTitle.className = "card-title";
       cardTitle.innerText = obj.title;
 
-      //CREO IL CARD-TEXT CHE CONTIENE IL PREZZO DEL LIBRO
+      // Creo il card-text con il prezzo
       const price = document.createElement("p");
       price.className = "card-text";
       price.innerText = `Prezzo: $${obj.price}`;
 
-      //CREO IL BOTTONE SCARTA E ACQUISTA
+      // Creo i bottoni Scarta e Acquista
       const buttonScarta = document.createElement("button");
       buttonScarta.className = "btn btn-danger";
       buttonScarta.innerText = "Scarta";
@@ -60,25 +57,23 @@ fetch("https://striveschool-api.herokuapp.com/books")
         const ul = document.getElementById("books");
         const li = document.createElement("li");
         li.textContent = obj.title;
-        li.className = "list-group-item ";
+        li.className = "list-group-item";
+        newcard.setAttribute("class", "buttonSelected");
         ul.appendChild(li);
       });
 
-      //APPENDO TITOLO TESTO E BUTTON AL CARD-BODY
+      // Appendo titolo, prezzo e bottoni al card-body
       cardBody.appendChild(cardTitle);
       cardBody.appendChild(price);
       cardBody.appendChild(buttonScarta);
       cardBody.appendChild(buttonAcquista);
 
-      //APENDO IMMAGINE E CARD-BODY ALLA CARD
+      // Appendo immagine e card-body alla card
       newcard.appendChild(cardImg);
       newcard.appendChild(cardBody);
 
-      //APPENDO LA CARD ALLA COLONNA
+      // Appendo la card alla row
       row.appendChild(newcard);
-
-      //APPENDO LA COLONNA ALLA ROW
-      //row.appendChild(col);
     });
   })
   .catch((error) => {
